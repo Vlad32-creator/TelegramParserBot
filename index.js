@@ -4,7 +4,7 @@ import TelegramBot from "node-telegram-bot-api";
 import parsText from "./parsing.js";
 
 const TOKEN = process.env.BOTTOKEN;
-const bot = new TelegramBot(TOKEN, { polling: true });
+const bot = new TelegramBot(TOKEN, { webHook: true });
 
 
 bot.setMyCommands([

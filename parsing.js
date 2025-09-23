@@ -163,7 +163,7 @@ async function main(stack, url, screenshot) {
         let browser, page;
         try {
             browser = await chromium.launch({
-                headless: false,
+                headless: true,
                 args: ['--no-sandbox'],
             });
         } catch (err) {
