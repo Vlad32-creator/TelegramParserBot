@@ -2,10 +2,24 @@ import dotenv from "dotenv";
 dotenv.config()
 import TelegramBot from "node-telegram-bot-api";
 import parsText from "./parsing.js";
+import express from 'express';
 
 const TOKEN = process.env.BOTTOKEN;
+const PORT = process.env.PORT||5000;
 const bot = new TelegramBot(TOKEN, { webHook: true });
+const url = '';
+const app = express();
 
+bot.setWebHook(`${url}/bot${TOKEN}`);
+
+app.use(express.json());
+app.post(`/bot${TOKEN}`, (req,res) => {
+    bot.processUpdate(req.body);
+    res.status(200);
+})
+app.listen(PORT , () => {
+    console.log(`Server work on ${PORT}`);
+})
 
 bot.setMyCommands([
     { command: 'pravdanews', description: 'Правда News' },
