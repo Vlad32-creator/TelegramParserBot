@@ -1,0 +1,4 @@
+node_modules
+.gitignore
+.git
+npm-debug.log
