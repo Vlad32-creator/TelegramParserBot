@@ -15,7 +15,7 @@ bot.setWebHook(`${url}/bot${TOKEN}`);
 app.use(express.json());
 app.post(`/bot${TOKEN}`, (req,res) => {
     bot.processUpdate(req.body);
-    res.status(200);
+    res.sendStatus(200);
 })
 app.listen(PORT , () => {
     console.log(`Server work on ${PORT}`);
