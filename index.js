@@ -7,7 +7,7 @@ import express from 'express';
 const TOKEN = process.env.BOTTOKEN;
 const PORT = process.env.PORT||5000;
 const bot = new TelegramBot(TOKEN, { webHook: true });
-const url = 'https://telegramparserbot-1.onrender.com';
+const url = 'https://telegramparserbot.onrender.com';
 const app = express();
 
 bot.setWebHook(`${url}/bot${TOKEN}`);
