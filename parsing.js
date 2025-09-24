@@ -104,8 +104,10 @@ function func() {
                 const attr = ['href','src','class','id','style','title','data','target','name','value'];
                 const [select, wot] = data;
                 try {
+                    console.log(select);
                     await page.waitForSelector(select);
                 } catch (err) {
+                    console.log(err);
                     if (err.name === 'TimeoutError') {
                         return { Error: `Element ${data[0]} not found` };
                     }
@@ -115,8 +117,8 @@ function func() {
                     console.log('text');
                     return {
                         success: await page.$$eval(select, els =>
-                            els.map(el => el.textContent.trim())
-                        )
+                            els.map(el => el.textContent.trim()
+                        ))
                     };
                 } if (attr.includes(wot)) {
                     console.log('attr');
